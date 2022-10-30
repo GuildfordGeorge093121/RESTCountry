@@ -1,0 +1,119 @@
+.country{
+    padding-top: 152px;
+    .home-btn{
+        border-radius: $border-radius;
+        padding: 10px 39px;
+        .icon{
+            margin-right: 10px;
+        }
+    }
+
+
+    .country-content{
+        margin-top: 80px;
+
+        .country-img img{
+            border-radius: $border-radius;
+            width: 560px;
+        }
+    }
+    .country-content-info{
+        width: 500px;
+
+        .country-name{
+            font-size: 32px;
+            font-weight: $extra_bold;
+            margin-bottom: 23px;
+        }
+
+        .chart-info{
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 68px;
+            .point{
+                margin-right: 5px;
+            }
+        }
+
+        .chart{
+            display: flex;
+            align-items: center;
+            .point{
+                font-size: 16px;
+                line-height: 32px;
+                font-weight: $bold;
+            }
+        }
+    }
+
+    .border-group{
+
+        .country-btn{
+            padding: 5px 27px;
+            border-radius: $border-radius;
+            margin: 0 10px 5px 0;
+            
+        }
+        .point{
+            display: block;
+            margin-right: 10px;
+            width: 133px;
+        }
+    }
+
+
+}
+
+@media screen and (max-width: 1220px){
+    .country{
+        .country-content .country-img img{
+            width: 450px;
+        }
+        .country-content-info{
+            margin-left: 2rem;
+        }
+    }
+}
+@media screen and (max-width: 980px){
+    .country{
+        .chart-info{
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+
+            .flex-item:first-child{
+                margin-bottom: 1.5rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 840px){
+    .country{
+        .country-content {
+            .flexSB{
+
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+            }
+            .country-img{
+                margin-bottom: 44px;
+            }
+
+        }
+        .country-content-info{
+            margin-left: 0;
+            width:100%
+        }
+    }
+}
+
+@media screen and (max-width: 520px){
+    .country{
+        .country-content .country-img img{
+            width: 100%
+        }
+    }
+}

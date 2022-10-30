@@ -1,0 +1,66 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: 'Nunito Sans', sans-serif;
+}
+button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.btn {
+  cursor: pointer;
+  box-shadow: 0 0 5px $shadow
+}
+
+a{
+    text-decoration: none;
+}
+
+h1{
+  font-size: 24px;
+  font-weight: $extra_bold;
+}
+
+.container{
+  max-width: 90vw;
+  margin: 0 auto;
+}
+
+.icon{
+  font-size: 16px;
+  svg{
+    vertical-align: middle;
+  }
+}
+
+
+span{
+  display: inline-block;
+}
+
+.flexSB{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+input{
+  outline: none;
+  border: none;
+}
+
+img{
+  width: 100%
+}
+
+.link{
+  display: inline-block;
+  color: inherit;
+}

@@ -1,0 +1,34 @@
+.card{
+    @include perfect_position;
+    height: 100%;
+    cursor: pointer;
+    img{
+        width: 100%;
+        object-fit: cover;
+        border-top-left-radius: $border-radius;
+        border-top-right-radius: $border-radius;
+    }
+
+    .country-mini-info{
+        padding: 24px 24px 46px 24px;
+        @include perfect_position;
+    }
+    
+    .country-name{
+        font-weight: $extra_bold;
+        font-size: 18px;
+        line-height: 26px;
+        margin-bottom: 16px;
+    }
+    .point{
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: $bold;
+    }
+    .point-answer{
+        @extend .point;
+        font-weight: $regular;
+        margin-left: 2px;
+    }
+
+}

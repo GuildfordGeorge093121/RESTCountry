@@ -1,0 +1,78 @@
+.home {
+  padding-top: 120px;
+  .form{
+    margin-bottom: 48px;
+
+    .input-field {
+      display: flex;
+      align-items: center;
+      padding: 19px 32px;
+      width: 480px;
+      border-radius: $border_radius;
+      box-shadow: 0 0 5px $shadow;
+
+      .btn{
+        background-color: transparent;
+        box-shadow: none;
+      }
+    }
+    .icon {
+      margin-right: 24px;
+      font-size: 18px;
+    }
+    input {
+      width: 100%;
+      background-color: transparent;
+      font-size: 14px;
+      font-weight: $regular
+    }
+    .filter-field{
+      font-size: 14px;
+      font-weight: $regular;
+      position: relative;
+      
+      
+      .drop-menu{
+        padding: 18px 24px;
+        border-radius: $border_radius;
+        width: 200px;
+      }
+  
+      .drop-down-menu{
+        position:absolute;
+        width: 100%;
+        top: 105%;
+        left: 0;
+        border-radius: $border_radius;
+        width: 200px;
+        padding: 4px 0;
+  
+        .drop-btn{
+          display: block;
+          padding: 6px 24px;
+          width: 100%;
+          text-align: left;
+          cursor: pointer;
+          box-shadow: none;
+          
+        }
+      }
+    }
+  }
+  
+
+  .country-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    gap: 3rem;
+
+    .grid-item{
+      border-radius: $border-radius;
+    }
+  }
+}
+
+@include homeQuery(1050px, 3);
+@include homeQuery($tablet, 2);
+@include homeQuery($mobile, 1);

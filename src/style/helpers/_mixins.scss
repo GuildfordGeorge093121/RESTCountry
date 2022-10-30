@@ -1,0 +1,108 @@
+@mixin perfect_position{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@mixin theme($theme, $text_color, $element_background,$country_background, $btn_over,$input_text){
+    
+    .app,
+    .text{
+        color: $text_color;
+    }
+    input{
+        color: $input_text;
+        &::placeholder{
+            color: $text_color;
+        }
+    }
+    
+    .input-field,
+    button,
+    header,
+    .drop-down-menu,
+    .link{
+        background-color: $element_background;
+    }
+
+    button,
+    .link{
+        color: $text_color;
+        &:hover{
+            background-color:$btn_over;
+        }
+    }
+
+    
+    @if($theme=='dark'){
+        
+        .home{
+            background-color: $country_background;
+        }
+        .country{
+            background-color: $country_background;
+        }
+
+        .grid-item{
+            background-color: $element_background;
+    
+            &:hover{
+                box-shadow: 0 0 5px $shadow;
+                background-color:$btn_over; 
+            }
+        }
+    }
+    @else {
+        .home{
+            background-color: $element_background;
+        }
+        .country{
+            background-color: $country_background;
+        }
+        .grid-item{
+            background-color: $element_background;
+            box-shadow: 0 0 5px $shadow;
+            &:hover{
+                
+                background-color:$btn_over; 
+            }
+        }
+    }
+
+      
+}
+
+
+@mixin homeQuery($breakPoint, $gridColumn){
+    @media screen and (max-width: $breakPoint) {
+        .home{
+            .country-grid{
+              grid-template-columns: repeat($gridColumn,1fr);
+            }
+            @if($breakPoint<=$tablet){
+                .form{
+                    &.flexSB{
+                        display: block;
+                    }
+                    .input-field{
+                        margin-bottom: 40px;
+                    }
+
+                }
+                
+            }
+            @if($breakPoint<= $mobile){
+                .form .input-field{
+                    width: 100%;
+                }
+                .country-grid,
+                .progress-mobile-size{
+                    width: 80%;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+        }
+        
+    }
+}

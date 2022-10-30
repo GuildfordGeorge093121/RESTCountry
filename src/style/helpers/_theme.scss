@@ -1,0 +1,6 @@
+@include theme("", $light_mode_text_color, $light_mode_elements_color, $light_mode_backgroundColor,$light_mode_hover,$light_mode_input_text_color);
+
+.dark{
+    background-color: $dark_mode_backgroundColor;   
+    @include theme("dark", $dark_mode_text_color, $dark_mode_element_color, $dark_mode_backgroundColor,$dark_mode_hover,$dark_mode_input_text_color);
+}

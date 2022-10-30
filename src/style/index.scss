@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+
+// helpers
+@import "./helpers/varaiable";
+@import "./helpers/mixins";
+@import "./helpers/common";
+@import "./helpers/theme";
+
+// layout
+@import "./layout/header";
+@import "./layout/footer";
+
+// COmponent
+@import "./components/countrydet";
+
+// Pages
+@import "./pages/home";
+@import "./pages/detail";
+@import "./pages/notfound";
+@import "./pages/fetch-error";
