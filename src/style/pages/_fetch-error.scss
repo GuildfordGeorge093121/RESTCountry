@@ -1,8 +1,12 @@
 .fetch-error{
     height: 100vh;
+}
+.fetch-error,
+.search-error{
+    
     padding-top: 72px;
     .icon{
-        font-size: 5rem;
+        font-size: 7rem;
     }
     .container{
         display: flex;

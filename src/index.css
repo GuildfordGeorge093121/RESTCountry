@@ -339,6 +339,7 @@ footer {
 }
 .country {
   padding-top: 152px;
+  padding-bottom: 5rem;
 }
 .country .home-btn {
   border-radius: 5px;
@@ -453,34 +454,46 @@ footer {
 
 .fetch-error {
   height: 100vh;
+}
+
+.fetch-error,
+.search-error {
   padding-top: 72px;
 }
-.fetch-error .icon {
-  font-size: 5rem;
+.fetch-error .icon,
+.search-error .icon {
+  font-size: 7rem;
 }
-.fetch-error .container {
+.fetch-error .container,
+.search-error .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100%;
 }
-.fetch-error p, .fetch-error a {
+.fetch-error p, .fetch-error a,
+.search-error p,
+.search-error a {
   text-align: center;
 }
-.fetch-error .error-header {
+.fetch-error .error-header,
+.search-error .error-header {
   font-size: 3rem;
 }
-.fetch-error .error-statement {
+.fetch-error .error-statement,
+.search-error .error-statement {
   font-size: 1rem;
   margin-bottom: 1.5rem;
 }
-.fetch-error .fetch-error-content {
+.fetch-error .fetch-error-content,
+.search-error .fetch-error-content {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.fetch-error .home-btn {
+.fetch-error .home-btn,
+.search-error .home-btn {
   border-radius: 5px;
   padding: 10px 39px;
 }/*# sourceMappingURL=index.css.map */

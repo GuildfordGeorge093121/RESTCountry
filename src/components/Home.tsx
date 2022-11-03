@@ -5,11 +5,14 @@ import { Context } from "./ContextProvider";
 import { ApiType } from "./APIType";
 import CountryCard from "./CountryCard";
 import Progress from './Progress'
+import EmptySearch from "./EmptySearch";
 
 const Home = () => {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("");
   const [toggle, setToggle] = useState(false);
+  const [focus, setFocus] = useState(false);
+  const [emptySearch, setEmptySearch] =useState(false)
   const [filterData, setFilterData]= useState([] as ApiType[])
   const {data} = useContext(Context)
   const handleChange = ({ target }: BaseSyntheticEvent) => {
@@ -29,31 +32,41 @@ const Home = () => {
         setFilterData(resultFilter)
       }
     }
-    else{
+    else{ 
+      let searchResult: ApiType[]=[]
       if(filter.length===0){
         const searchRegEx= new RegExp(search, 'ig');
-        const searchResult= data.filter((item)=>searchRegEx.test(item.name));
-        setFilterData(searchResult)
+        searchResult= data.filter((item)=>searchRegEx.test(item.name));
+        setEmptySearch(true)
       }
-      else{
+      else if(filter.length>0){
         const regEx =new RegExp(filter,'ig')
         const searchRegEx= new RegExp(search, 'ig');
         const resultFilter= data.filter((item)=> regEx.test(item.region));
-        const searchResult= resultFilter.filter((item)=>searchRegEx.test(item.name));
+        searchResult= resultFilter.filter((item)=>searchRegEx.test(item.name));
+        
+      }
+
+      if(searchResult.length>0){
         setFilterData(searchResult)
+        setEmptySearch(false)
+      }
+      else{
+        setEmptySearch(true)
       }
     }
     
   },[data,filter, search])
 
-  const handleClick = () => {};
-  const handleSubmit = () => {};
+  const searchFocus = () => {
+
+  };
   return (
       <section className="home">
         <div className="container">
           <div className="form flexSB">
             <div className="input-field">
-              <button className="btn" onClick={handleSubmit}>
+              <button className="btn">
                 <span className="icon">
                   <MdSearch />
                 </span>
@@ -93,7 +106,8 @@ const Home = () => {
             </div>
           </div>
           {
-            filterData.length>0?
+            data.length>0?
+            !emptySearch?
             (<div className="country-cards">
               <div className="country-grid">
                   {
@@ -105,7 +119,9 @@ const Home = () => {
                   }
                 
               </div>    
-          </div>) : 
+          </div>):
+          <EmptySearch filter={filter} search={search}/>
+          : 
           (
             <div className='progress-mobile-size'>
               <Progress />
