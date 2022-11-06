@@ -12,7 +12,7 @@ const EmptySearch = ({filter, search}:{filter:string; search:string}) => {
                     filter.length>0?
                     (<>
                         <p className="error-header">
-                            {'Sorry:) '}<strong>{`${search}`}</strong>{' is found in '}(<strong>{`${filter}`}</strong>)
+                            {'Sorry:) '}<strong>{`${search}`}</strong>{' is found in '}<strong>{`${filter}`}</strong>
                         </p>
                         <p className="error-statement">
                             Change the filter to default to expand the search region

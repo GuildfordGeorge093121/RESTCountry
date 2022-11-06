@@ -13,16 +13,15 @@ const Header = () => {
           </a>
         </div>
         <div>
-          <div
-            className="mode text"
-            onClick={() => {
-              setNight(!night);
-            }}
-          >
+          <div className="mode text">
             <span className="icon">
               {night ? <BsFillMoonFill />: <BsMoon />}
             </span>
-            <span className="dark-mode">Dark Mode</span>
+            <span className="dark-mode" 
+            onClick={() => {
+              setNight(!night);
+            }}
+            >Dark Mode</span>
           </div>
         </div>
       </div>

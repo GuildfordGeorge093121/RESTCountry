@@ -1,5 +1,5 @@
-import React, { BaseSyntheticEvent, useState, useEffect, useContext, Suspense } from "react";
-import { MdSearch } from "react-icons/md";
+import React, { BaseSyntheticEvent, useState, useEffect, useContext} from "react";
+import { MdSearch, MdOutlineClose } from "react-icons/md";
 import { BiChevronDown } from "react-icons/bi";
 import { Context } from "./ContextProvider";
 import { ApiType } from "./APIType";
@@ -11,13 +11,11 @@ const Home = () => {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("");
   const [toggle, setToggle] = useState(false);
-  const [focus, setFocus] = useState(false);
   const [emptySearch, setEmptySearch] =useState(false)
   const [filterData, setFilterData]= useState([] as ApiType[])
   const {data} = useContext(Context)
   const handleChange = ({ target }: BaseSyntheticEvent) => {
-    setSearch(target.value)
-    
+    setSearch(target.value.trim())
   };
 
 
@@ -31,13 +29,13 @@ const Home = () => {
         const resultFilter= data.filter((item)=> regEx.test(item.region));
         setFilterData(resultFilter)
       }
+      setEmptySearch(false)
     }
     else{ 
       let searchResult: ApiType[]=[]
       if(filter.length===0){
         const searchRegEx= new RegExp(search, 'ig');
         searchResult= data.filter((item)=>searchRegEx.test(item.name));
-        setEmptySearch(true)
       }
       else if(filter.length>0){
         const regEx =new RegExp(filter,'ig')
@@ -57,20 +55,24 @@ const Home = () => {
     }
     
   },[data,filter, search])
-
-  const searchFocus = () => {
-
-  };
   return (
       <section className="home">
         <div className="container">
           <div className="form flexSB">
             <div className="input-field">
-              <button className="btn">
+              {
+                search.length>0 ?
+                  <button className="btn" onClick={()=>{setSearch(""); setEmptySearch(false)}}  style={{color: 'red'}}>
+                  <span className="icon">
+                    <MdOutlineClose />
+                  </span>
+                </button>:
+                <button className="btn">
                 <span className="icon">
                   <MdSearch />
                 </span>
               </button>
+              }
 
               <input type="text" name="search" id="" placeholder="Search for a country..." onChange={handleChange} value={search}/>
             </div>
@@ -107,20 +109,20 @@ const Home = () => {
           </div>
           {
             data.length>0?
-            !emptySearch?
-            (<div className="country-cards">
-              <div className="country-grid">
-                  {
-                    filterData.map((country,index)=>{
-                      return (
-                          <CountryCard data={country} key={index}/> 
-                      )
-                    })
-                  }
-                
-              </div>    
-          </div>):
-          <EmptySearch filter={filter} search={search}/>
+              !emptySearch?
+                (<div className="country-cards">
+                  <div className="country-grid">
+                      {
+                        filterData.map((country,index)=>{
+                          return (
+                              <CountryCard data={country} key={index}/> 
+                          )
+                        })
+                      }
+                    
+                  </div>    
+              </div>):
+              <EmptySearch filter={filter} search={search}/>
           : 
           (
             <div className='progress-mobile-size'>

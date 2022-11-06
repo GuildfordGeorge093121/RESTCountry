@@ -13,6 +13,7 @@ type ContextProviderType={
   children: ReactNode
 }
 export const Context= createContext({} as StateType)
+
 const ContextProvider = ({children}:ContextProviderType) => {
   const [data, setData] = useState([] as ApiType[])
   const [night, setNight] = useState(false)
