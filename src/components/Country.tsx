@@ -96,9 +96,9 @@ const Country = () => {
                                                 {
                                                     country.borders?.map((border,index)=>
                                                         {
-                                                            const {name}=data.filter((item)=>item.alpha3Code===border)[0]
+                                                            const name=data.find((item)=>item.alpha3Code===border)?.name
                                                             return (
-                                                                <Link to={`/country/${name.toLocaleLowerCase()}`} className="link btn country-btn" key={index}>
+                                                                <Link to={`/country/${name?.toLocaleLowerCase()}`} className="link btn country-btn" key={index}>
                                                                     {name}
                                                                 </Link>
                                                             )

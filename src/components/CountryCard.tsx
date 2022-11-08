@@ -6,7 +6,9 @@ const CountryCard = ({ data }: { data: ApiType }) => {
   return (
     <Link to={`/country/${data.name.toLocaleLowerCase()}`} className="link grid-item">
       <div className="card">
-        <img src={data.flags.png} alt="" />
+        <div className="flag">
+          <img src={data.flags.png} alt="" />
+        </div>
         <div className="country-mini-info">
           <div className="country-name">{data.name}</div>
           <div className="country-mini-chart">

@@ -2,11 +2,16 @@
     @include perfect_position;
     height: 100%;
     cursor: pointer;
-    img{
-        width: 100%;
+    .flag{
+        height: 160px;
         object-fit: cover;
-        border-top-left-radius: $border-radius;
-        border-top-right-radius: $border-radius;
+            img{
+                // width: 100%;
+                height: 100%;
+                
+                border-top-left-radius: $border-radius;
+                border-top-right-radius: $border-radius;
+            }
     }
 
     .country-mini-info{
