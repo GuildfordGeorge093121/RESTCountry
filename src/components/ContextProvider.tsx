@@ -1,7 +1,6 @@
 import React, {createContext, ReactNode, useState} from 'react'
 import { ApiType } from './APIType';
-import Footer from './Footer';
-import Home from './Home';
+
 type StateType={
   data: ApiType[];
   setData: React.Dispatch<React.SetStateAction<ApiType[]>>;

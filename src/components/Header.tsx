@@ -17,7 +17,7 @@ const Header = () => {
             <span className="icon">
               {night ? <BsFillMoonFill />: <BsMoon />}
             </span>
-            <span className="dark-mode" 
+            <span className="dark-mode-btn" 
             onClick={() => {
               setNight(!night);
             }}

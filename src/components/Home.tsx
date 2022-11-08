@@ -1,4 +1,4 @@
-import React, { BaseSyntheticEvent, useState, useEffect, useContext} from "react";
+import React, { BaseSyntheticEvent, useState, useEffect, useContext, useRef} from "react";
 import { MdSearch, MdOutlineClose } from "react-icons/md";
 import { BiChevronDown } from "react-icons/bi";
 import { Context } from "./ContextProvider";
@@ -13,13 +13,17 @@ const Home = () => {
   const [toggle, setToggle] = useState(false);
   const [emptySearch, setEmptySearch] =useState(false)
   const [filterData, setFilterData]= useState([] as ApiType[])
+
   const {data} = useContext(Context)
+  const wrapperRef= useRef<HTMLInputElement>(null)
+
   const handleChange = ({ target }: BaseSyntheticEvent) => {
     setSearch(target.value.trim())
   };
 
-
+  console.log(wrapperRef)
   useEffect(()=>{
+    // Empty Search InputField
     if(search.length===0){
       if(filter.length===0){
         setFilterData(data)
@@ -31,6 +35,7 @@ const Home = () => {
       }
       setEmptySearch(false)
     }
+    // Search-Input-field with input string
     else{ 
       let searchResult: ApiType[]=[]
       if(filter.length===0){
@@ -62,19 +67,19 @@ const Home = () => {
             <div className="input-field">
               {
                 search.length>0 ?
-                  <button className="btn" onClick={()=>{setSearch(""); setEmptySearch(false)}}  style={{color: 'red'}}>
-                  <span className="icon">
-                    <MdOutlineClose />
-                  </span>
-                </button>:
-                <button className="btn">
-                <span className="icon">
-                  <MdSearch />
-                </span>
-              </button>
+                  <button className="btn" onClick={()=>{setSearch(""); setEmptySearch(false); wrapperRef.current?.focus() }}  style={{color: 'red'}}>
+                    <span className="icon">
+                      <MdOutlineClose />
+                    </span>
+                  </button>:
+                  <button className="btn">
+                    <span className="icon">
+                      <MdSearch />
+                    </span>
+                </button>
               }
 
-              <input type="text" name="search" id="" placeholder="Search for a country..." onChange={handleChange} value={search}/>
+              <input type="text" name="search" id="" placeholder="Search for a country..." onChange={handleChange} value={search} ref={wrapperRef} />
             </div>
             <div className="filter-field">
               <button className="btn drop-menu flexSB" onClick={() => {setToggle(!toggle);}}>

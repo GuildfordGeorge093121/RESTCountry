@@ -65,7 +65,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr;
-    gap: 3rem;
+    gap: 75px 3rem;
 
     .grid-item{
       border-radius: $border-radius;
