@@ -11,11 +11,13 @@ type StateType={
 type ContextProviderType={
   children: ReactNode
 }
+
 export const Context= createContext({} as StateType)
 
 const ContextProvider = ({children}:ContextProviderType) => {
   const [data, setData] = useState([] as ApiType[])
-  const [night, setNight] = useState(false)
+  const [night, setNight] = useState(localStorage.hasOwnProperty('countryMode')? localStorage.countryMode==='true'? true:false :false)
+  
   return (
     <Context.Provider value={{data, setData,night,setNight}}>
       {children}

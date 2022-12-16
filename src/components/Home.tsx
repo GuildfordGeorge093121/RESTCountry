@@ -20,8 +20,7 @@ const Home = () => {
   const handleChange = ({ target }: BaseSyntheticEvent) => {
     setSearch(target.value.trim())
   };
-
-  console.log(wrapperRef)
+  
   useEffect(()=>{
     // Empty Search InputField
     if(search.length===0){

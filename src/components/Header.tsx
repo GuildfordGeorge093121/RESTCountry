@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { BsMoon, BsFillMoonFill } from "react-icons/bs";
 import { Context } from "./ContextProvider";
 
@@ -20,6 +20,7 @@ const Header = () => {
             <span className="dark-mode-btn" 
             onClick={() => {
               setNight(!night);
+              localStorage.countryMode= !night
             }}
             >Dark Mode</span>
           </div>
